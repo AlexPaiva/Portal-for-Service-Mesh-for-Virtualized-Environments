@@ -554,7 +554,7 @@ body {
 
 /* ===================================== Quote CSS ================================== */
 .custom-msg {
-  padding: 80px 50px;
+  padding: 10px 50px;
   background-color: #0098ef;
   color: #FFF; }
   @media screen and (max-width: 767px) {
