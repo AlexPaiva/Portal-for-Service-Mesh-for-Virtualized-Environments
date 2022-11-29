@@ -1,0 +1,108 @@
+.price-tab{
+    @include big-padding();
+    background-color: #cccccc1c;
+    .session-title{
+        margin-bottom: 40px;
+    }
+    .product-box{
+        background-color: #FFF;
+        border-radius: 20px;
+        @include shado-1();
+        .product-header{
+            padding: 20px;
+            text-align: center;
+             border-bottom: 1px solid #CCC;
+            h4{
+                margin-bottom: 0px;
+            }
+            p{
+                font-size: .9rem;
+            }
+        }
+        .product-popular{
+            padding: 16px;
+            color: #FFF;
+            background-color: #18ad90;
+            font-family: $mouse-400;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            text-align: center;
+        }
+        .ppo{
+            background-color: #2e4054;
+        }
+        .product-price{
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            border-bottom: 1px solid #cccccc70;
+            .rokij{
+                width: 120px;
+                height: 120px;
+                box-shadow: 0 5px 12px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.11) !important;
+                border-radius: 50%;
+                text-align: center;
+                background-color: #f3f7f8;
+                float: none;
+                margin: auto;
+                p{
+                    font-size: .8rem;
+                }
+                padding-top: 25px;
+            }
+        }
+        .product-features{
+            text-align: center;
+            ul{
+                li{
+                    padding: 10px;
+                    color: #444;
+                    font-family: $mouse-300;
+                    font-size: .9rem;
+                    &:nth-child(even) {
+                        background: #cccccc30;
+                    }
+                }
+            }
+            .smal{
+                   
+                    li{
+                        font-weight: 300;
+                        color: #6d6a6a;
+                        font-size: .9rem;
+                         font-family: $mouse-300;
+                    }         
+            }
+        }
+        .product-order{
+            padding: 20px;
+            a{
+                background-color: #18ad90;
+                width: 100%;
+                text-align: center;
+                color: #fff;
+                border-color: #18ad90;
+                font-family: $mouse-400;
+                i{
+                    margin-right: 10px;
+                }
+                &:hover{
+                    color: #FFF;
+                }
+            }
+        }
+    }
+    .ultimate{
+        margin-top: -40px;
+        margin-bottom: 40px;
+        @media screen and (max-width: 991px){
+            margin-top: 30px
+        }
+    }
+    .inner-title{
+        margin-bottom: 80px;
+    }
+}
+.pp-top{
+    padding-top: 100px;
+}

@@ -1,0 +1,747 @@
+/* =======================================================================
+Template Name: Dil Hospital
+Author:  SmartEye Adminpanel
+Author URI: www.smarteyeapps.com
+Version: 1.0
+coder name:Prabin Raja
+Description: This Template is created for web template
+======================================================================= */
+/* ===================================== Import Less ================================== */
+:root {
+  --color-font: #808291;
+  --color-primary: #3ed2a7;
+  --color-secondary: #ffb09f;
+  --color-link: #a7a9b8;
+  --color-link-hover: #181b31;
+  --color-gradient-start: #4fda91;
+  --color-gradient-stop: #34dbc5;
+  --color-img-holder: #efefef; }
+
+@font-face {
+  font-family: 'Glacial Indifference';
+  src: url("../fonts/GlacialIndifference-Regular.html") format("woff2"), url("../fonts/basiersquare-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal; }
+@font-face {
+  font-family: 'Glacial Indifference bold';
+  src: url("../fonts/GlacialIndifference-Bold.html") format("woff2"), url("../fonts/GlacialIndifference-Bold.woff") format("woff");
+  font-weight: bold;
+  font-display: swap;
+  font-style: normal; }
+@font-face {
+  font-family: 'title-font';
+  src: url("../fonts/cerebri-sans.woff") format("truetype"); }
+/* ===================================== Basic CSS ================================== */
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; }
+
+img {
+  max-width: 100%; }
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #444; }
+
+a:hover {
+  color: #444; }
+
+ul {
+  margin-bottom: 0;
+  padding-left: 0; }
+
+a:hover,
+a:focus,
+input,
+textarea {
+  text-decoration: none;
+  outline: none; }
+
+.center {
+  text-align: center; }
+
+.left {
+  text-align: left; }
+
+.right {
+  text-align: right; }
+
+.cp {
+  cursor: pointer; }
+
+html, body {
+  height: 100%; }
+
+p {
+  margin-bottom: 0px;
+  width: 100%; }
+
+.no-padding {
+  padding: 0px; }
+
+.no-margin {
+  margin: 0px; }
+
+.hid {
+  display: none; }
+
+.top-mar {
+  margin-top: 15px; }
+
+.h-100 {
+  height: 100%; }
+
+::placeholder {
+  color: #747f8a !important;
+  font-size: 13px;
+  opacity: .5 !important; }
+
+.container-fluid {
+  padding: 0px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: font-bold; }
+
+strong {
+  font-family: "Glacial Indifference bold", "Open Sans", sans-serif; }
+
+body {
+  background-color: #ffffff !important;
+  font-family: "Glacial Indifference", "Open Sans", sans-serif;
+  color: #6A6A6A; }
+
+.session-title {
+  padding: 30px;
+  margin: 0px; }
+  .session-title h2 {
+    width: 100%;
+    text-align: center;
+    font-family: "title-font", "Open Sans", sans-serif; }
+  .session-title p {
+    max-width: 850px;
+    text-align: center;
+    float: none;
+    margin: auto; }
+  .session-title span {
+    float: right;
+    font-style: italic; }
+
+.inner-title {
+  padding: 20px;
+  padding-left: 0px;
+  margin-bottom: 30px; }
+  .inner-title h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem; }
+  .inner-title p {
+    width: 100%;
+    text-align: center; }
+
+.page-nav {
+  padding: 40px;
+  text-align: center;
+  padding-top: 160px;
+  background-color: #cccccc26; }
+  .page-nav ul {
+    float: none;
+    margin: auto; }
+  @media screen and (max-width: 911px) {
+    .page-nav {
+      padding-top: 156px; } }
+  .page-nav h2 {
+    font-size: 30px;
+    width: 100%;
+    color: #444;
+    font-family: "Glacial Indifference", "Open Sans", sans-serif;
+    font-weight: 600; }
+    @media screen and (max-width: 600px) {
+      .page-nav h2 {
+        font-size: 22px; } }
+  .page-nav ul li {
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 16px; }
+    .page-nav ul li i {
+      width: 30px;
+      text-align: center;
+      color: #444; }
+    .page-nav ul li a {
+      color: #444; }
+
+.btn-success {
+  background-color: #223d50;
+  border-color: #223d50; }
+  .btn-success:hover {
+    background-color: #223d50 !important;
+    border-color: #223d50 !important; }
+  .btn-success:active {
+    background-color: #223d50 !important;
+    border-color: #223d50 !important; }
+  .btn-success:focus {
+    background-color: #223d50 !important;
+    border-color: #223d50 !important;
+    box-shadow: none !important; }
+
+.btn-primary {
+  background-color: #23afe3;
+  border-color: #23afe3; }
+  .btn-primary:hover {
+    background-color: #23afe3 !important;
+    border-color: #23afe3 !important; }
+  .btn-primary:active {
+    background-color: #23afe3 !important;
+    border-color: #23afe3 !important; }
+  .btn-primary:focus {
+    background-color: #23afe3 !important;
+    border-color: #23afe3 !important;
+    box-shadow: none !important; }
+
+.btn {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 2px; }
+
+.form-control:focus {
+  box-shadow: none !important;
+  border: 2px solid  #863dd9; }
+
+.btn-light {
+  background-color: #FFF;
+  color: #3F3F3F; }
+
+.collapse.show {
+  display: block !important; }
+
+.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #863dd9 !important; }
+
+.form-control {
+  background-color: #F8F8F8;
+  margin-bottom: 20px; }
+  .form-control:focus {
+    background-color: #FFF;
+    border-color: #CCC; }
+
+.container {
+  max-width: 1100px; }
+  @media screen and (max-width: 575px) {
+    .container {
+      padding: 10px 15px; } }
+
+.btn-success {
+  background-color: #107d6a;
+  border-color: #107d6a; }
+  .btn-success:hover {
+    background-color: #107d6a !important;
+    border-color: #107d6a !important; }
+  .btn-success:active {
+    background-color: #107d6a !important;
+    border-color: #107d6a !important; }
+  .btn-success:focus {
+    background-color: #107d6a !important;
+    border-color: #107d6a !important;
+    box-shadow: none !important; }
+
+.btn-primary {
+  background-color: #23afe3;
+  border-color: #23afe3; }
+  .btn-primary:hover {
+    background-color: #23afe3 !important;
+    border-color: #23afe3 !important; }
+  .btn-primary:active {
+    background-color: #23afe3 !important;
+    border-color: #23afe3 !important; }
+  .btn-primary:focus {
+    background-color: #23afe3 !important;
+    border-color: #23afe3 !important;
+    box-shadow: none !important; }
+
+.btn {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 2px; }
+
+.btn-outline-primary {
+  border-radius: 50px;
+  padding: 5px 25px;
+  color: #23afe3;
+  border-color: #23afe3;
+  font-family: "Glacial Indifference bold", "Open Sans", sans-serif; }
+
+/* ===================================== Header CSS ================================== */
+.header-container {
+  position: absolute;
+  width: 100%;
+  z-index: 999; }
+  .header-container .header-top {
+    background-color: #202020; }
+    .header-container .header-top .left-item ul li {
+      float: left;
+      padding: 8px;
+      color: #FFF;
+      font-size: .85rem; }
+    .header-container .header-top .right-item ul {
+      float: right; }
+      .header-container .header-top .right-item ul li {
+        float: left;
+        padding: 8px 15px;
+        color: #FFF; }
+        .header-container .header-top .right-item ul li i {
+          font-size: .8rem; }
+        .header-container .header-top .right-item ul li a {
+          color: #FFF; }
+  .header-container .nav-part {
+    margin-top: 20px; }
+    @media screen and (max-width: 1012px) {
+      .header-container .nav-part {
+        margin-top: 0px; } }
+    @media screen and (max-width: 767px) {
+      .header-container .nav-part .container {
+        padding: 0px; } }
+    .header-container .nav-part .nav-ro {
+      background-color: #FFF;
+      border-radius: 40px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+      @media screen and (max-width: 1012px) {
+        .header-container .nav-part .nav-ro {
+          border-radius: 0px; } }
+      .header-container .nav-part .nav-ro .logo img {
+        margin-top: 5px; }
+        @media screen and (max-width: 1012px) {
+          .header-container .nav-part .nav-ro .logo img {
+            max-width: 230px; } }
+        @media screen and (max-width: 767px) {
+          .header-container .nav-part .nav-ro .logo img {
+            padding: 10px;
+            margin-top: 0px; } }
+      .header-container .nav-part .nav-ro .nav-div ul {
+        float: right; }
+        @media screen and (max-width: 767px) {
+          .header-container .nav-part .nav-ro .nav-div ul {
+            width: 100%; } }
+        .header-container .nav-part .nav-ro .nav-div ul li {
+          float: left;
+          padding: 20px; }
+          @media screen and (max-width: 1012px) {
+            .header-container .nav-part .nav-ro .nav-div ul li {
+              padding: 20px 10px;
+              font-size: .9rem; } }
+          @media screen and (max-width: 790px) {
+            .header-container .nav-part .nav-ro .nav-div ul li {
+              padding: 20px 7px; } }
+          @media screen and (max-width: 767px) {
+            .header-container .nav-part .nav-ro .nav-div ul li {
+              float: none;
+              width: 100%;
+              padding: 10px;
+              border-bottom: 1px solid #cccccc94; } }
+
+.scroll-to-fixed-fixed {
+  margin-top: 0px !important; }
+
+.small-menu {
+  float: right;
+  padding: 15px;
+  font-size: 1.6rem; }
+
+/* ===================================== Slider CSS ================================== */
+.slider-detail {
+  padding-top: 40px; }
+  @media screen and (max-width: 1012px) {
+    .slider-detail {
+      padding-top: 104px; } }
+  @media screen and (max-width: 767px) {
+    .slider-detail {
+      padding-top: 92px; } }
+  .slider-detail .carousel-caption {
+    bottom: 54px; }
+    @media screen and (max-width: 1274px) {
+      .slider-detail .carousel-caption {
+        bottom: 40px; } }
+    @media screen and (max-width: 767px) {
+      .slider-detail .carousel-caption {
+        bottom: 20px; } }
+    @media screen and (max-width: 767px) {
+      .slider-detail .carousel-caption {
+        bottom: 0px; } }
+    @media screen and (max-width: 1066px) {
+      .slider-detail .carousel-caption .img {
+        margin-top: 70px; } }
+    @media screen and (max-width: 767px) {
+      .slider-detail .carousel-caption .img {
+        display: none; } }
+    .slider-detail .carousel-caption .contblack {
+      color: #fff;
+      text-align: left; }
+      .slider-detail .carousel-caption .contblack h5 {
+        font-size: 2.8rem;
+        font-family: "Glacial Indifference bold", "Open Sans", sans-serif;
+        margin-top: 30px; }
+        @media screen and (max-width: 767px) {
+          .slider-detail .carousel-caption .contblack h5 {
+            margin-top: 10px;
+            font-size: 1.5rem; } }
+      .slider-detail .carousel-caption .contblack p {
+        font-size: 1rem;
+        margin-top: 30px;
+        line-height: 35px; }
+        @media screen and (max-width: 767px) {
+          .slider-detail .carousel-caption .contblack p {
+            font-size: .9rem;
+            line-height: 25px;
+            margin-top: 10px; } }
+      .slider-detail .carousel-caption .contblack .vbh {
+        margin-top: 20px;
+        padding-left: 20px; }
+        @media screen and (max-width: 767px) {
+          .slider-detail .carousel-caption .contblack .vbh {
+            margin-top: 10px; } }
+      .slider-detail .carousel-caption .contblack .image {
+        margin-right: 20px; }
+        @media screen and (max-width: 767px) {
+          .slider-detail .carousel-caption .contblack .image {
+            display: none; } }
+      .slider-detail .carousel-caption .contblack .btn-default {
+        background-color: #FFF;
+        color: #444; }
+    .slider-detail .carousel-caption .whiteback {
+      color: #FFF; }
+    @media screen and (max-width: 560px) {
+      .slider-detail .carousel-caption {
+        left: 5%;
+        right: 5%; } }
+    @media screen and (max-width: 546px) {
+      .slider-detail .carousel-caption p {
+        height: 80px;
+        overflow: hidden; } }
+    @media screen and (max-width: 497px) {
+      .slider-detail .carousel-caption p {
+        height: 55px;
+        overflow: hidden; } }
+
+/* ===================================== Services CSS ================================== */
+.service-container {
+  padding: 50px; }
+  @media screen and (max-width: 940px) {
+    .service-container {
+      padding: 30px 10px; } }
+  .service-container .key-col {
+    padding: 15px; }
+    .service-container .key-col i {
+      font-size: 2rem;
+      margin-bottom: 10px; }
+    .service-container .key-col h3 {
+      font-size: 1.3rem;
+      font-family: "Glacial Indifference", "Open Sans", sans-serif;
+      font-weight: 600; }
+    .service-container .key-col p {
+      font-size: .9rem; }
+    .service-container .key-col a {
+      color: #23afe3;
+      font-weight: 600;
+      font-size: .8rem; }
+
+/* ===================================== Price Tag CSS ================================== */
+.price-tab {
+  padding: 50px;
+  background-color: #cccccc1c; }
+  @media screen and (max-width: 940px) {
+    .price-tab {
+      padding: 30px 10px; } }
+  .price-tab .session-title {
+    margin-bottom: 40px; }
+  .price-tab .product-box {
+    background-color: #FFF;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+    .price-tab .product-box .product-header {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #CCC; }
+      .price-tab .product-box .product-header h4 {
+        margin-bottom: 0px; }
+      .price-tab .product-box .product-header p {
+        font-size: .9rem; }
+    .price-tab .product-box .product-popular {
+      padding: 16px;
+      color: #FFF;
+      background-color: #18ad90;
+      font-family: "Glacial Indifference bold", "Open Sans", sans-serif;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      text-align: center; }
+    .price-tab .product-box .ppo {
+      background-color: #2e4054; }
+    .price-tab .product-box .product-price {
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      border-bottom: 1px solid #cccccc70; }
+      .price-tab .product-box .product-price .rokij {
+        width: 120px;
+        height: 120px;
+        box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.11) !important;
+        border-radius: 50%;
+        text-align: center;
+        background-color: #f3f7f8;
+        float: none;
+        margin: auto;
+        padding-top: 25px; }
+        .price-tab .product-box .product-price .rokij p {
+          font-size: .8rem; }
+    .price-tab .product-box .product-features {
+      text-align: center; }
+      .price-tab .product-box .product-features ul li {
+        padding: 10px;
+        color: #444;
+        font-family: "Glacial Indifference", "Open Sans", sans-serif;
+        font-size: .9rem; }
+        .price-tab .product-box .product-features ul li:nth-child(even) {
+          background: #cccccc30; }
+      .price-tab .product-box .product-features .smal li {
+        font-weight: 300;
+        color: #6d6a6a;
+        font-size: .9rem;
+        font-family: "Glacial Indifference", "Open Sans", sans-serif; }
+    .price-tab .product-box .product-order {
+      padding: 20px; }
+      .price-tab .product-box .product-order a {
+        background-color: #18ad90;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        border-color: #18ad90;
+        font-family: "Glacial Indifference bold", "Open Sans", sans-serif; }
+        .price-tab .product-box .product-order a i {
+          margin-right: 10px; }
+        .price-tab .product-box .product-order a:hover {
+          color: #FFF; }
+  .price-tab .ultimate {
+    margin-top: -40px;
+    margin-bottom: 40px; }
+    @media screen and (max-width: 991px) {
+      .price-tab .ultimate {
+        margin-top: 30px; } }
+  .price-tab .inner-title {
+    margin-bottom: 80px; }
+
+.pp-top {
+  padding-top: 100px; }
+
+/* ===================================== FAQ CSS ================================== */
+.faq-cont {
+  padding: 50px; }
+  @media screen and (max-width: 940px) {
+    .faq-cont {
+      padding: 30px 10px; } }
+  .faq-cont .btn-link {
+    box-shadow: none !important; }
+  .faq-cont .card-header {
+    padding: 3px;
+    background-color: #FFF; }
+  .faq-cont .card-body {
+    font-size: .9rem; }
+
+.faq-form input {
+  background-color: #FFF;
+  padding: 10px; }
+.faq-form textarea {
+  background-color: #FFF; }
+
+/* ===================================== Quote CSS ================================== */
+.custom-msg {
+  padding: 80px 50px;
+  background-color: #0098ef;
+  color: #FFF; }
+  @media screen and (max-width: 767px) {
+    .custom-msg {
+      padding: 30px; } }
+  .custom-msg .cust-msg {
+    text-align: center; }
+    .custom-msg .cust-msg h2 {
+      width: 100%;
+      margin-bottom: 20px; }
+    .custom-msg .cust-msg p {
+      margin-bottom: 30px; }
+    .custom-msg .cust-msg .btn {
+      font-family: "Glacial Indifference", "Open Sans", sans-serif;
+      border-radius: 8px; }
+
+/* ===================================== Testimonial  CSS ================================== */
+.customer-serv {
+  background-color: #cccccc26;
+  padding: 60px; }
+  @media screen and (max-width: 554px) {
+    .customer-serv {
+      padding: 40px 20px; } }
+  .customer-serv .ro-clo {
+    padding: 30px 0px; }
+  .customer-serv .card-b::after {
+    box-sizing: border-box;
+    background-color: #FFF;
+    content: "";
+    position: absolute;
+    z-index: 100;
+    height: 25px;
+    left: 35px;
+    top: 75px;
+    transform: rotate(135deg);
+    width: 25px; }
+  .customer-serv .card-b {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    background: url(../images/quotes.png) no-repeat bottom right;
+    background-color: rgba(0, 0, 0, 0);
+    background-position-x: right;
+    background-position-y: bottom;
+    background-size: auto auto;
+    background-color: #FFF;
+    background-size: 40px;
+    background-position: right 10px bottom 5px; }
+  .customer-serv .an-mtc {
+    padding-top: 23px; }
+  .customer-serv .stars {
+    padding-top: 33px; }
+    .customer-serv .stars li {
+      list-style: none;
+      color: #f8b739;
+      float: right;
+      font-size: 13px;
+      margin-left: 4px; }
+      .customer-serv .stars li i {
+        font-size: 11px; }
+  .customer-serv .img-circl {
+    margin-top: 20px;
+    text-align: center; }
+  .customer-serv .img-circl img {
+    width: 80%;
+    border-radius: 50%; }
+  .customer-serv .bghn {
+    margin-bottom: 20px; }
+
+/* ===================================== Clents CSS ================================== */
+/* ===================================== Clents CSS ================================== */
+.our-blog {
+  background-color: #FDFDFD;
+  padding: 40px; }
+  @media screen and (max-width: 967px) {
+    .our-blog {
+      padding: 30px 0px; } }
+  .our-blog .single-blog {
+    margin-bottom: 20px;
+    background-color: #FFF;
+    box-shadow: 0 2px 6px 0 rgba(218, 218, 253, 0.65), 0 2px 6px 0 rgba(206, 206, 238, 0.54); }
+    .our-blog .single-blog figure {
+      margin-bottom: 5px; }
+      .our-blog .single-blog figure img {
+        width: 100%; }
+    .our-blog .single-blog .blog-detail {
+      padding: 15px; }
+      .our-blog .single-blog .blog-detail p {
+        font-size: .9rem; }
+    .our-blog .single-blog small {
+      color: #23afe3;
+      font-size: 12px; }
+    .our-blog .single-blog h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      margin-top: 5px; }
+    .our-blog .single-blog p {
+      text-align: justify;
+      text-indent: 20px; }
+    .our-blog .single-blog .link a {
+      font-size: 12px;
+      color: #23afe3; }
+    .our-blog .single-blog .link i {
+      padding-top: 6px;
+      margin-left: 5px;
+      color: #23afe3; }
+
+/* ===================================== Clents CSS ================================== */
+.about-company {
+  padding: 50px;
+  background-color: #fff; }
+  @media screen and (max-width: 940px) {
+    .about-company {
+      padding: 30px 10px; } }
+  .about-company .detail h3 {
+    font-family: "Glacial Indifference", "Open Sans", sans-serif;
+    font-size: 1.8rem; }
+  .about-company .detail p {
+    font-size: .85rem;
+    text-align: justify; }
+  .about-company .imag {
+    padding: 10px; }
+    .about-company .imag img {
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      background-color: #FFF;
+      padding: 5px; }
+
+/* ===================================== Footer CSS ================================== */
+footer {
+  background-image: url(../images/bg.jpg); }
+  footer .inner {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    color: #ccc;
+    font-size: .9rem; }
+    @media screen and (max-width: 940px) {
+      footer .inner {
+        padding: 30px 10px; } }
+    footer .inner h4 {
+      color: #FFF;
+      font-family: "Glacial Indifference", "Open Sans", sans-serif;
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 30px; }
+    footer .inner .foot-about p {
+      margin-bottom: 30px; }
+    footer .inner .foot-post .post-row {
+      display: flex;
+      margin-bottom: 10px; }
+      footer .inner .foot-post .post-row .image img {
+        width: 120px; }
+      footer .inner .foot-post .post-row .detail {
+        flex-grow: 1;
+        padding-left: 5px; }
+        footer .inner .foot-post .post-row .detail p {
+          font-size: .8rem;
+          margin-top: -5px; }
+    footer .inner .foot-services ul li {
+      padding: 5px;
+      font-size: .95rem; }
+      footer .inner .foot-services ul li a {
+        color: #ccc; }
+    footer .inner .foot-news p {
+      margin-bottom: 20px; }
+    footer .inner .foot-news .input-group {
+      border-radius: 0px; }
+      footer .inner .foot-news .input-group input {
+        border-radius: 0px; }
+      footer .inner .foot-news .input-group .input-group-append {
+        border-radius: 0px;
+        background-color: #FFF; }
+    footer .inner .foot-news ul li {
+      float: left;
+      padding: 10px; }
+      footer .inner .foot-news ul li i {
+        font-size: 20px; }
+
+.copy {
+  padding: 20px;
+  background-color: #000000;
+  color: #FFF; }
+  .copy a {
+    color: #FFF; }
+  .copy span {
+    float: right; }
+    .copy span i {
+      margin-right: 20px; }
+
+/*# sourceMappingURL=style.css.map */

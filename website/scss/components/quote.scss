@@ -1,0 +1,22 @@
+.custom-msg{
+    padding: 80px 50px;
+	@media screen and (max-width: 767px){
+		padding:30px;
+	}
+    background-color: #0098ef;
+    color: #FFF;
+    .cust-msg{
+        h2{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        p{
+            margin-bottom: 30px;
+        }
+        text-align: center;
+        .btn{
+            font-family: $mouse-300;
+            border-radius: 8px;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.our-blog{
+	background-color: #FDFDFD;
+	padding: 40px;
+	@media screen and (max-width: 967px) {
+		padding: 30px 0px;
+	}
+	.single-blog{
+		margin-bottom: 20px;
+		background-color: #FFF;
+		@include shado-3();
+		figure{
+			margin-bottom: 5px;
+            img{
+                width: 100%;
+            }
+		}
+		.blog-detail{
+			padding: 15px;
+            p{
+                font-size: .9rem;
+            }
+		}
+		small{
+			color: $color-primary;
+			font-size: 12px;
+		}
+		h4{
+			font-size: 1.2rem;
+			margin-bottom: 10px;
+            margin-top: 5px;
+			
+		}
+		p{
+			text-align: justify;
+			text-indent: 20px;
+		}
+		.link{
+			a{
+				font-size: 12px;
+				color: $color-primary;
+			}
+			i{
+				padding-top: 6px;
+				margin-left: 5px;
+				color: $color-primary;
+			}
+		}
+		
+	}
+}

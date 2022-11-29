@@ -1,0 +1,92 @@
+footer{
+    background-image: url(../images/bg.jpg);
+    .inner{
+        background-color: rgba(0,0,0,0.7);
+        @include big-padding();
+        color: #ccc;
+        font-size: .9rem;
+        h4{
+            color: #FFF;
+            font-family: $mouse-300;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        .foot-about{
+            p{
+                margin-bottom: 30px;
+            }
+        }
+        .foot-post{
+            .post-row{
+                display: flex;
+                margin-bottom: 10px;
+                .image{
+                     
+                    img{
+                       width: 120px;
+                    }
+                }
+                .detail{
+                    flex-grow: 1;
+                    padding-left: 5px;
+                    
+                    p{
+                        font-size: .8rem;
+                        margin-top: -5px;
+                    }
+                }
+            }
+        }
+        .foot-services{
+            ul{
+                li{
+                    padding: 5px;
+                    font-size: .95rem;
+                    a{
+                        color: #ccc;
+                    }
+                }
+            }
+        }
+        .foot-news{
+            p{
+               margin-bottom: 20px; 
+            }
+            .input-group{
+                border-radius: 0px;
+                input{
+                    border-radius: 0px;
+                }
+                .input-group-append{
+                    border-radius: 0px;
+                    background-color: #FFF;
+                }
+            }
+            ul{
+                li{
+                    float: left;
+                    padding: 10px;
+                    i{
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.copy{
+        padding: 20px;
+        background-color: #000000;
+        color: #FFF;
+    a{
+        color: #FFF;
+    }
+    span{
+        float: right;
+        i{
+            margin-right: 20px;
+        }
+    }
+}
