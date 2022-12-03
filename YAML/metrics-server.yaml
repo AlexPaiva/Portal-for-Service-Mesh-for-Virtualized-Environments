@@ -127,7 +127,6 @@ spec:
       labels:
         k8s-app: metrics-server
     spec:
-      hostNetwork: true
       containers:
       - args:
         - --cert-dir=/tmp
@@ -170,6 +169,7 @@ spec:
         volumeMounts:
         - mountPath: /tmp
           name: tmp-dir
+      hostNetwork: true
       nodeSelector:
         kubernetes.io/os: linux
       priorityClassName: system-cluster-critical
