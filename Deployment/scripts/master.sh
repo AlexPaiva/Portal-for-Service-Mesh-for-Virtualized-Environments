@@ -44,7 +44,7 @@ kubectl apply -f calico.yaml
 
 # Install Metrics Server
 
-kubectl apply -f x
+kubectl apply -f https://raw.githubusercontent.com/AlexPaiva/Portal-for-Service-Mesh-for-Virtualized-Environments/main/Deployment/yaml/metrics-server.yaml
 
 # Install Kubernetes Dashboard
 
