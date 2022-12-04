@@ -1,0 +1,98 @@
+.header-container{
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    .header-top{
+        background-color: #202020;
+        .left-item{
+            ul{
+                li{
+                    float: left;
+                    padding: 8px;
+                    color: #FFF;
+                    font-size: .85rem;
+                }
+            }
+        }
+        .right-item{
+            ul{
+                float: right;
+                li{
+                    float: left;
+                    padding: 8px 15px;
+                    color: #FFF;
+                    i{
+                        font-size: .8rem;
+                    }
+                    a{
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+    }
+    .nav-part{
+        margin-top: 20px;
+        @media screen and (max-width: 1012px){
+            margin-top: 0px;
+        }
+        @media screen and (max-width: 767px){
+            .container{
+                padding:0px;
+            }
+        }
+        .nav-ro{
+            background-color: #FFF;
+            border-radius: 40px;
+            @include shado-1();
+            @media screen and (max-width: 1012px){
+                border-radius: 0px;
+            }
+            .logo{
+                img{
+                    margin-top: 5px;
+                    @media screen and (max-width: 1012px){
+                        max-width: 230px;
+                    }
+                    @media screen and (max-width: 767px){
+                        padding: 10px;
+                        margin-top: 0px;
+                    }
+                }
+            }
+            .nav-div{
+                ul{
+                    float: right;
+                    @media screen and (max-width: 767px){
+                        width: 100%;
+                    }
+                    li{
+                        float: left;
+                        padding: 20px;
+                        @media screen and (max-width: 1012px){
+                            padding: 20px 10px;
+                            font-size: .9rem;
+                        }
+                        @media screen and (max-width: 790px){
+                            padding: 20px 7px;
+                        }
+                        @media screen and (max-width: 767px){
+                            float: none;
+                            width: 100%;
+                            padding: 10px;
+                            border-bottom: 1px solid #cccccc94;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.scroll-to-fixed-fixed{
+    margin-top: 0px !important;
+}
+.small-menu{
+    float: right;
+    padding: 15px;
+    font-size: 1.6rem;
+}

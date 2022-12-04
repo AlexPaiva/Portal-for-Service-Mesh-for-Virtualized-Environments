@@ -1,0 +1,92 @@
+.slider-detail{
+    padding-top: 40px;
+    @media screen and (max-width: 1012px){
+        padding-top: 104px;
+    }
+    @media screen and (max-width: 767px){
+        padding-top: 92px;
+    }
+    .carousel-caption{
+         bottom: 54px;
+        
+        @media screen and (max-width: 1274px){
+            bottom: 40px;    
+        }
+        @media screen and (max-width: 767px){
+            bottom: 20px;    
+        }
+        @media screen and (max-width: 767px){
+            bottom: 0px;
+        }
+        .img{
+            @media screen and (max-width: 1066px){
+                margin-top: 70px;
+            }
+            @media screen and (max-width: 767px){
+                display: none;
+            }
+        }
+        .contblack{
+            color: #fff;
+            text-align: left;
+            h5{
+                font-size: 2.8rem;
+                font-family: $mouse-400;
+                margin-top: 30px;
+                @media screen and (max-width: 767px){
+                    margin-top: 10px;
+                    font-size: 1.5rem;
+                }
+            }
+            p{
+                font-size: 1rem;
+                margin-top: 30px;
+                line-height: 35px;
+                @media screen and (max-width: 767px){
+                    font-size: .9rem;
+                    line-height: 25px;
+                    margin-top: 10px;
+                        
+                }
+            }
+            .vbh{
+                margin-top: 20px;
+                padding-left: 20px;
+                @media screen and (max-width: 767px){
+                    margin-top: 10px;
+                }
+            }
+            .image{
+                margin-right: 20px;
+                @media screen and (max-width: 767px){
+                    display: none;
+                }
+            }
+           
+            
+            .btn-default{
+                background-color: #FFF;
+                color: #444;
+            }
+        }
+        .whiteback{
+            color: #FFF;
+        }
+        @media screen and (max-width: 560px){
+            left: 5%;
+            right: 5%;
+        }
+        @media screen and (max-width: 546px){
+            p{
+                height: 80px;
+                overflow: hidden;
+            }
+        }
+        @media screen and (max-width: 497px){
+            p{
+                height: 55px;
+                overflow: hidden;
+            }
+        }
+    }
+}

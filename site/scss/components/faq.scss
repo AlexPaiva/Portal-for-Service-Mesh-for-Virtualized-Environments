@@ -1,0 +1,22 @@
+.faq-cont{
+    @include big-padding();
+    .btn-link{
+        box-shadow: none !important;
+    }
+    .card-header{
+        padding: 3px;
+        background-color: #FFF;
+    }
+    .card-body{
+        font-size: .9rem;
+    }
+}
+.faq-form{
+    input{
+        background-color: #FFF;
+        padding: 10px;
+    }
+    textarea{
+        background-color: #FFF; 
+    }
+}
