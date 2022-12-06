@@ -23,7 +23,8 @@ https://discuss.hashicorp.com/t/vagrant-2-2-18-osx-11-6-cannot-create-private-ne
 
 ##HOW TO USE
 
-To provision the cluster, execute the following commands.
+To provision the cluster, execute the following commands on the workstation.
+Install 'kubectl' first if needed! (https://kubernetes.io/docs/tasks/tools/)
 
 ## Set Kubeconfig file variable
 
