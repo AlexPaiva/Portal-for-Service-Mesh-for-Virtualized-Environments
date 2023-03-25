@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factory Dashboard</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function updateFactoryData() {
+      $.getJSON('/api/factory-data', function(data) {
+        var tableRows = '';
+
+        $.each(data, function(index, factoryData) {
+          tableRows += '<tr><td>' + factoryData.factory_id + '</td><td>' + factoryData.material_in + '</td><td>' + factoryData.product_out + '</td></tr>';
+        });
+
+        $('#factory-data-table tbody').html(tableRows);
+      });
+    }
+
+    $(document).ready(function() {
+      updateFactoryData();
+      setInterval(updateFactoryData, 1000);
+    });
+  </script>
+</head>
+<body>
+  <h1>Factory Dashboard</h1>
+  <table id="factory-data-table" border="1">
+    <thead>
+      <tr>
+        <th>Factory ID</th>
+        <th>Material In</th>
+        <th>Product Out</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <br>
+  <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

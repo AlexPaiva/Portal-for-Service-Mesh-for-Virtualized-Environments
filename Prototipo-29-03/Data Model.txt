@@ -1,0 +1,37 @@
+Data Model Factory 4.0
+Factory
+id - Unique identifier for the factory.
+name - Name of the factory.
+materials_in - List of materials that are coming in, with attributes such as material name, supplier, quantity, and timestamp.
+products_out - List of products going out, with attributes such as product name, customer, quantity, and timestamp.
+
+Central Management Place
+id - Unique identifier for the central management place.
+name - Name of the central management place.
+factories - List of factories associated with the central management place, with attributes such as factory name, id, and location.
+
+Cada fábrica vai ter um unique indentifier, name, e 2 listas: materials_in e products_out.
+A lista materials_in vai conter informação sobre os materiais que estão a entrar na fábrica, incluíndo nome do materil, o supplier,
+a quantidade e data de recebimento.
+A lista porducts_out vai conter informação sobre os products que estão a sair da fábrica, incluindo o nome do produto, do cliente,
+a quantidade e a data de saída.
+
+A central management place vai também ter um unique indetifier, name, e uma lista de fabricas associadas a ele.
+A lista vai conter informação sobre cada fábrica, incluindo o nome da fabrica, id e localização.
+
+kubectl , kind, docker, istio instalar
+criar portal flask
+dockerize o portal flask com docker build
+criar o cluster kind com a yaml file
+deploy istio no cluster
+criar kubernetes deployment and service YAML files para a aplicacao em flask e dar apply as mesmas
+configurar os recursos istio para a aplicacao flask
+simular as fabricas com scripts simples q enviam data para a aplicacao flask
+correr comando para obter ip e port do cluster e aceder assim a aplicacao flask
+
+The 'kind Cluster' and 'apiVersion kind.x-k8s.io/v1alpha4' lines specify that this is a kind cluster configuration file.
+The nodes list contains one control plane node and two worker nodes.
+The kubeadmConfigPatches section is used to add a label to the control plane node, indicating that it is ingress-ready.
+This will allow you to deploy an ingress controller, such as Istio's ingress gateway, on the control plane node.
+The extraPortMappings section maps container ports 80 and 443 to host ports 80 and 443, respectively.
+This allows you to access the Flask application via your host machine's IP and these ports.

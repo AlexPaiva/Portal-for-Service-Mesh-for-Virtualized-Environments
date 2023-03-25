@@ -1,0 +1,63 @@
+0)Criar Cluster Kind:
+Correr 'kind create cluster --config kind-config.yaml'
+no diretorio da file kind-config.yaml
+
+1)Criar Docker Image para Portal:
+No diretorio do app.py correr:
+docker build -t flask-portal-image .
+
+(Atenção ao ponto no final!)
+Depois de correr isto tudo deves ficar com mais um ficheiro:
+flask-portal-image: Docker Image para o Portal em Flask
+
+2)Criar Docker Image para Factory:
+No diretorio do factory_app.py correr:
+docker build -t factory-image .
+
+(Atenção ao ponto no final!)
+Depois de correr isto tudo deves ficar com mais um ficheiro:
+factory-image: Imagem Docker para a App da Factory.
+
+3)Carregar as imagens Docker para o Cluster Kind:
+Ir ao Diretorio do Portal e correr:
+kind load docker-image flask-portal-image
+
+Ir ao Diretorio da Fabrica e correr:
+kind load docker-image factory-image
+
+4)Dar deploy com YAML files:
+Ir ao Diretorio do Portal e correr:
+kubectl apply -f portal-deployment.yaml
+
+Ir ao Diretorio da Fabrica e correr:
+kubectl apply -f factory-deployment.yaml
+
+5)Iniciar Portal
+Uma vez que o portal é do tipo 'NodePort' pode ser acedido numa porta específica,
+logo corre o comando abaixo:
+kubectl get services portal-service
+
+E procura no output o valor 'NodePort' que deve estar no formato "80:<NodePort>"
+Decora/Guarda o valor.
+
+6)Verifica se está tudo ligado e a funcionar antes de aceder ao portal para evitar dados corruptos:
+6.1) Verifica o estado do cluster todo, Garante que o cluster Kind
+está running e todos os worker nodes estão 'Ready'.
+Vê isto usando o comando:kubectl get nodes
+6.2) Check o status dos serviços.
+Usa o comando 'kubectl get deployments' para ver se
+o portal Flask e as factories estão properly deployed.
+Verifica que não existem erros ou issues.
+6.3) Check o estado dos serviços, com o comando 'kubectl get services'.
+Verificar que os serviços estao a correr e têm ClusterIPs válidos e
+as portas estão corretamente expostas.
+6.4)Check os logs para o Portal Flask e aplicação de Fabricas
+usando 'kubectl logs <pod-name>' e ver se tem erros ou issues.
+
+7)Aceder ao Portal Flask:
+Para aceder ao Portal abre um browser e acede a "http://localhost:<NodePort>" depois dá login
+com 'factoryManager:password' (e deve mostrar tabela das duas fabricas com in e out random
+a atualizar de 10 em 10 segundos) ou 'factory1:password' (e same q above mas só fábrica 1)
+ou 'factory2:password' (e same q above mas só fábrica 2)
+
+Done! :)
