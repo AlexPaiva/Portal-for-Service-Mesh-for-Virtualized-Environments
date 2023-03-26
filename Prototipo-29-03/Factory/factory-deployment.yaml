@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: factory1-container
-        image: <your-factory1-image>
+        image: factory-image1
         ports:
         - containerPort: 80
 ---
@@ -49,7 +49,7 @@ spec:
     spec:
       containers:
       - name: factory2-container
-        image: <your-factory2-image>
+        image: factory-image2
         ports:
         - containerPort: 80
 ---
