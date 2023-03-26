@@ -12,11 +12,13 @@ flask-portal-image: Docker Image para o Portal em Flask
 
 2)Criar Docker Image para Factory:
 No diretorio do factory_app.py correr:
-docker build -t factory-image .
+docker build -t factory-image1 .
 
 (Atenção ao ponto no final!)
 Depois de correr isto tudo deves ficar com mais um ficheiro:
-factory-image: Imagem Docker para a App da Factory.
+factory-image1: Imagem Docker para a App da Factory.
+
+(Repetir para criar factory-image2, para repetir basta mudar o 1 para 2)
 
 3)Carregar as imagens Docker para o Cluster Kind:
 Ir ao Diretorio do Portal e correr:
