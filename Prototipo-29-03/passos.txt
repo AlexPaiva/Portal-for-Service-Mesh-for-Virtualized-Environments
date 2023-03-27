@@ -2,7 +2,9 @@
 Correr 'kind create cluster --config kind-config.yaml'
 no diretorio da file kind-config.yaml
 
-1)Criar Docker Image para Portal:
+
+1)Criar Docker Image para Portal: //apenas 1ª vez antes de fazer push da imagem para o repositório
+
 No diretorio do app.py correr:
 docker build -t flask-portal-image .
 
@@ -10,7 +12,8 @@ docker build -t flask-portal-image .
 Depois de correr isto tudo deves ficar com mais um ficheiro:
 flask-portal-image: Docker Image para o Portal em Flask
 
-2)Criar Docker Image para Factory:
+2)Criar Docker Image para Factory: //apenas 1ª vez antes de fazer push da imagem para o repositório
+
 No diretorio do factory_app.py correr:
 docker build -t factory-image1 .
 
@@ -20,12 +23,22 @@ factory-image1: Imagem Docker para a App da Factory.
 
 (Repetir para criar factory-image2, para repetir basta mudar o 1 para 2)
 
-3)Carregar as imagens Docker para o Cluster Kind:
+3)Carregar as imagens Docker para o Cluster Kind: //opção1 , ignorar se for utilizada a opção2
 Ir ao Diretorio do Portal e correr:
 kind load docker-image flask-portal-image
 
 Ir ao Diretorio da Fabrica e correr:
 kind load docker-image factory-image
+
+//Opção2
+3)Dar push das imagens criadas para um repositório //só necessário na 1ª vez
+docker login 
+docker tag <image-name> <username>/<repository_name>:<image_tag>  //exemplo $docker tag flask-portal-image <username>/projpeci:flask-portal-image
+docker push <username>/<repository_name>:<image_name> //exemplo $ docker push <username>/projpeci:flask-portal-image
+
+//Repetir os passos acima para as imagens da fábrica
+//IMPORTANTE: Sempre que se mudar alguma coisa na app da fábrica ou portal repetir desde o passo 2 para atualizar a imagem. 
+//correr:"kubectl exec -it <pod-name> -- /bin/bash" e ver o conteúdo do pod para certificar que as mudanças foram feitas
 
 4)Dar deploy com YAML files:
 Ir ao Diretorio do Portal e correr:
@@ -41,6 +54,11 @@ kubectl get services portal-service
 
 E procura no output o valor 'NodePort' que deve estar no formato "80:<NodePort>"
 Decora/Guarda o valor.
+Correr o comando: "ufw allow <NodePort>" //Garantir a firewall permite tráfego nessa porta
+
+Descobrir o IP do node que contém o Portal:
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <node-name>
+
 
 6)Verifica se está tudo ligado e a funcionar antes de aceder ao portal para evitar dados corruptos:
 6.1) Verifica o estado do cluster todo, Garante que o cluster Kind
@@ -57,7 +75,8 @@ as portas estão corretamente expostas.
 usando 'kubectl logs <pod-name>' e ver se tem erros ou issues.
 
 7)Aceder ao Portal Flask:
-Para aceder ao Portal abre um browser e acede a "http://localhost:<NodePort>" depois dá login
+
+Para aceder ao Portal abre um browser e acede a "http://<Node_IP>:<NodePort>" depois dá login
 com 'factoryManager:password' (e deve mostrar tabela das duas fabricas com in e out random
 a atualizar de 10 em 10 segundos) ou 'factory1:password' (e same q above mas só fábrica 1)
 ou 'factory2:password' (e same q above mas só fábrica 2)

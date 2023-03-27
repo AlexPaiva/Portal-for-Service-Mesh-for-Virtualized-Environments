@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: factory1-container
-        image: factory-image1
+        image: dbicho/projpeci:factory-image1
         ports:
         - containerPort: 80
 ---
@@ -49,7 +49,7 @@ spec:
     spec:
       containers:
       - name: factory2-container
-        image: factory-image2
+        image: dbicho/projpeci:factory-image2
         ports:
         - containerPort: 80
 ---

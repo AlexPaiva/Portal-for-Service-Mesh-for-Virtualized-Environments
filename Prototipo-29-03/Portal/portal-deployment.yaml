@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: portal-container
-        image: flask-portal-image
+        image: dbicho/projpeci:flask-portal-image
         ports:
         - containerPort: 80
 ---
