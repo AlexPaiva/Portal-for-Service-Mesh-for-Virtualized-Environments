@@ -203,7 +203,7 @@ label {
 
 .form-control-label {
     font-size: 10px;
-    color: #000000;
+    color: #e2dada;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -4063,7 +4063,7 @@ label {
 
 	#intro {
 		background-attachment: fixed;
-		background-image: url("images/intro.svg");
+		background-image: url("/static/img/intro.svg");
 		background-position: top right;
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
