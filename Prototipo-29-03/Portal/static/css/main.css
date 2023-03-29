@@ -50,6 +50,16 @@ table {
 	border-spacing: 0;
 }
 
+img.logo{
+	/* (A) RESPONSIVE LOGO */
+	width: 100%;
+	height: auto;
+   
+	/* (B) RECOMMENDED - LIMIT MAXIMUM WIDTH */
+	max-width: 400px;
+}
+
+
 body {
 	-webkit-text-size-adjust: none;
 }
