@@ -2,6 +2,12 @@
 Correr 'kind create cluster --config kind-config.yaml'
 no diretorio da file kind-config.yaml
 
+ISTIO) sudo docker exec -it kind-control-plane /bin/bash //go to master node
+	curl -L https://istio.io/downloadIstio | sh -    //correr já dentro do node
+	export PATH="$PATH:/istio-1.17.1/bin"
+	istioctl install --set profile=default	
+
+
 
 1)Criar Docker Image para Portal: //apenas 1ª vez antes de fazer push da imagem para o repositório
 
@@ -58,6 +64,7 @@ Correr o comando: "ufw allow <NodePort>" //Garantir a firewall permite tráfego 
 
 Descobrir o IP do node que contém o Portal:
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <node-name>
+ou sudo kubectl get nodes -o wide
 
 
 6)Verifica se está tudo ligado e a funcionar antes de aceder ao portal para evitar dados corruptos:

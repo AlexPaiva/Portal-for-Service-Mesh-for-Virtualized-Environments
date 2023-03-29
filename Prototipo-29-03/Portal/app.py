@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 import requests
 
-app = Flask(__name__, template_folder='templates', static_folder= 'static')
+app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///factory_data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -29,7 +29,7 @@ class FactoryData(db.Model):
 def load_user(user_id):
     return db.session.get(User, int(user_id))
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         user = User.query.filter_by(username=request.form['username']).first()
@@ -38,7 +38,7 @@ def login():
             return redirect(url_for('dashboard'))
         else:
             flash('Invalid credentials')
-    return render_template('index.html')
+    return render_template('login.html')
 
 @app.route('/api/factory-data')
 @login_required
@@ -66,7 +66,7 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@app.route('/login')
+@app.route('/')
 @login_required
 def dashboard():
     idCurr = factory_id=current_user.factory_id
@@ -75,6 +75,16 @@ def dashboard():
     else:
         factory_data = FactoryData.query.filter_by(factory_id=current_user.factory_id).all()
     return render_template('dashboard.html', factory_data=factory_data)
+
+@app.route('/factory')
+@login_required
+def fac():
+    idCurr = factory_id=current_user.factory_id
+    if (str(idCurr) == "0"):
+        factory_data = FactoryData.query.filter_by().all()
+    else:
+        factory_data = FactoryData.query.filter_by(factory_id=current_user.factory_id).all()
+    return render_template('factory.html', factory_data=factory_data)
 
 
 if __name__ == '__main__':
