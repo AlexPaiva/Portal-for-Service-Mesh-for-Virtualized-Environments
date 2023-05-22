@@ -12,6 +12,6 @@ spec:
     protocol: HTTP
   resolution: DNS
   endpoints:
-  - address: IP_EXTERNAL_FACTORY_OBTIDO_COM:'kubectl get nodes -o wide'
+  - address: 172.18.0.4
     ports:
       http: 80

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: portal-container
-        image: dbicho/projpeci:flask-portal-image
+        image: istsmerafarlho/projpeci:portal-deployment
         ports:
         - containerPort: 80
 ---

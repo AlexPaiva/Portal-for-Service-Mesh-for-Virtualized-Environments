@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: factory2-container
-        image: dbicho/projpeci:factory-image2
+        image: istsmerafarlho/projpeci:factory2-deployment-cluster2
         ports:
         - containerPort: 80
 ---
