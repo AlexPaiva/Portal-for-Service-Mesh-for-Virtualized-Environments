@@ -1,0 +1,75 @@
+
+Instaling kubectl and curl
+sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /etc/apt/trusted.gpg.d/kubernetes-archive-keyring.gpg >/dev/null
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
+
+
+installing istioctl
+curl -sL https://istio.io/downloadIstioctl | sh -
+export PATH=$HOME/.istioctl/bin:$PATH
+
+installing kind
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+
+installing docker
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo tee /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg >/dev/null
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
+
+sudo systemctl status docker //checks docker info
+
+sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl
+sudo systemctl start kube-apiserver.service
+
+//Na pasta cluster1
+sudo kind create cluster --config kind-config.yaml --name portal-cluster
+sudo kubectl config use-context kind-portal-cluster
+sudo istioctl install --set profile=demo -y
+sudo kubectl label namespace default istio-injection=enabled
+cd Portal
+
+sudo docker build -t portal-deployment .
+sudo docker tag portal-deployment istsmerafarlho/projpeci:portal-deployment
+sudo docker push istsmerafarlho/projpeci:portal-deployment
+sudo kind load docker-image portal-deployment --name portal-cluster
+sudo kubectl apply -f portal-deployment.yaml
+cd .. 
+sudo kubectl apply -f istio-config.yaml
+
+sudo kubectl get services portal-service -o=jsonpath='{.spec.clusterIP}'
+
+
+
+//Na pasta cluster2:
+sudo kind create cluster --config kind-config-factory.yaml --name factory-cluster
+sudo kubectl config use-context kind-factory-cluster
+sudo istioctl install --set profile=demo -y
+sudo kubectl label namespace default istio-injection=enabled
+cd Factory
+sudo kubectl config use-context kind-factory-cluster
+sudo docker build -t factory1-deployment-cluster2 .
+sudo docker tag factory1-deployment-cluster2 istsmerafarlho/projpeci:factory1-deployment-cluster2
+sudo docker push istsmerafarlho/projpeci:factory1-deployment-cluster2
+sudo kind load docker-image factory1-deployment-cluster2 --name factory-cluster
+sudo kubectl apply -f factory1-deployment-cluster2.yaml
+
+sudo docker build -t factory2-deployment-cluster2 .
+sudo docker tag factory2-deployment-cluster2 istsmerafarlho/projpeci:factory2-deployment-cluster2
+sudo docker push istsmerafarlho/projpeci:factory2-deployment-cluster2
+sudo kind load docker-image factory2-deployment-cluster2 --name factory-cluster
+sudo kubectl apply -f factory2-deployment-cluster2.yaml
+sudo kubectl apply -f factory-destinationrules.yaml
+sudo kubectl apply -f factory-virtualservice.yaml
+
+sudo kubectl get services --all-namespaces
+//check the one named portal service
