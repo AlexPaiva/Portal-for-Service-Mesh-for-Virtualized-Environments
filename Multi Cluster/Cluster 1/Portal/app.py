@@ -31,6 +31,21 @@ class FactoryData(db.Model):
 def load_user(user_id):
     return db.session.get(User, int(user_id))
 
+# Read the IP address from the file
+with open('host_ip.txt', 'r') as file:
+    host_ip = file.read().strip()
+
+@app.route('/run-script')
+def run_script():
+    # Send an HTTP request to the host machine using the IP address from the file
+    print("RUN SCRIPT")
+    response = requests.get(f'http://{host_ip}:8000/execute-script')
+    
+    if response.status_code == 200:
+        return 'Script execution initiated'
+    else:
+        return 'Failed to execute script'
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':

@@ -22,6 +22,26 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="static/images/favicon.png" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script>
+
+    function executeScript() {
+      // Send an HTTP request to your Flask server
+      fetch('/run-script')
+        .then(function(response) {
+          if (response.ok) {
+            return response.text();
+          } else {
+            throw new Error('Failed to execute script');
+          }
+        })
+        .then(function(result) {
+          alert(result); // Display the result in an alert or update the UI accordingly
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    }
+  </script>
     <script>
       function updateFactoryStats() {
         $.getJSON('/api/factory-data', function(data) {
@@ -127,12 +147,13 @@
             </button>
             <ul class="navbar-nav w-100">
               <li class="nav-item w-100">
+              	 
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown d-none d-lg-block">
                 {% if current_user.factory_id == 0 %}
-                <a class="nav-link btn btn-success create-new-button" aria-expanded="false" href="#">+ Add New Factory</a>
+                 <button onclick="executeScript()" class="btn btn-primary">+ Add New Factory</button>
                 {% endif %}
                 <!--<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
                   <h6 class="p-3 mb-0">Projects</h6>

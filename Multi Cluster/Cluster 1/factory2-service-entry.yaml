@@ -1,10 +1,10 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
-  name: factory1-service-entry
+  name: factory2-service-entry
 spec:
   hosts:
-  - factory1-service.default.svc.cluster.local
+  - factory2-service.default.svc.cluster.local
   location: MESH_INTERNAL
   ports:
   - number: 80

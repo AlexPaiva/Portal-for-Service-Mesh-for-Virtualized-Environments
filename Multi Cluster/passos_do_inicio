@@ -32,12 +32,13 @@ sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl
 sudo systemctl start kube-apiserver.service
 
 //Na pasta cluster1
+//before everithing check the host ip and put it on the Cluster 1/Portal/host_ip.txt
+
 sudo kind create cluster --config kind-config.yaml --name portal-cluster
 sudo kubectl config use-context kind-portal-cluster
 sudo istioctl install --set profile=demo -y
 sudo kubectl label namespace default istio-injection=enabled
 cd Portal
-
 sudo docker build -t portal-deployment .
 sudo docker tag portal-deployment istsmerafarlho/projpeci:portal-deployment
 sudo docker push istsmerafarlho/projpeci:portal-deployment
