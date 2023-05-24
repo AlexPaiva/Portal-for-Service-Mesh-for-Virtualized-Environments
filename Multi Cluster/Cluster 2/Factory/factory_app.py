@@ -8,12 +8,6 @@ import requests
 app = Flask(__name__)
 factory_data = {"material_in": 150, "product_out": 55}
 
-def read_portal_api_ip():
-    with open("portal_api_ip.txt", "r") as file:
-        return file.read().strip()
-
-portal_api_ip = read_portal_api_ip()
-
 def update_data():
     global factory_data
     while True:
