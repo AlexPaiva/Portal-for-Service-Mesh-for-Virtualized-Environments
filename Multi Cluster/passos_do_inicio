@@ -30,7 +30,7 @@ sudo systemctl status docker //checks docker info
 
 sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl
 sudo systemctl start kube-apiserver.service
-
+----------------------------------------------------------------------------------------------------------------------------------
 //Na pasta cluster1
 //before everithing check the host ip and put it on the Cluster 1/Portal/host_ip.txt
 
@@ -44,8 +44,6 @@ sudo docker tag portal-deployment istsmerafarlho/projpeci:portal-deployment
 sudo docker push istsmerafarlho/projpeci:portal-deployment
 sudo kind load docker-image portal-deployment --name portal-cluster
 sudo kubectl apply -f portal-deployment.yaml
-cd .. 
-sudo kubectl apply -f istio-config.yaml
 
 sudo kubectl get services portal-service -o=jsonpath='{.spec.clusterIP}'
 
@@ -69,8 +67,29 @@ sudo docker tag factory2-deployment-cluster2 istsmerafarlho/projpeci:factory2-de
 sudo docker push istsmerafarlho/projpeci:factory2-deployment-cluster2
 sudo kind load docker-image factory2-deployment-cluster2 --name factory-cluster
 sudo kubectl apply -f factory2-deployment-cluster2.yaml
-sudo kubectl apply -f factory-destinationrules.yaml
-sudo kubectl apply -f factory-virtualservice.yaml
+
 
 sudo kubectl get services --all-namespaces
 //check the one named portal service
+
+DEPOIS INSTALAR O ISTIO:
+cd .. 
+OLD NAO USAR -> sudo kubectl apply -f istio-config.yaml
+Install Istio on the primary cluster (portal-cluster):
+  curl -L https://istio.io/downloadIstio | sh -
+  export PATH="$PATH:/<path_to_istio_directory>/bin"
+  istioctl install --set profile=demo -y
+  kubectl label namespace default istio-injection=enabled
+  Replace <path_to_istio_directory> with the path to your Istio directory.
+Create and apply the Istio configuration for the portal service:
+  kubectl apply -f portal-istio-config.yaml
+  kubectl --context=<factory-cluster-context> create namespace istio-system
+  kubectl --context=<factory-cluster-context> label namespace default istio-injection=enabled
+  (Replace <factory-cluster-context> with the context of your remote cluster.)
+  (obter os context names: kubectl config get-contexts)
+NO CLUSTER DA FABRICA:
+  istioctl --context=<factory-cluster-context> install --set profile=demo -y
+  istioctl x create-remote-secret \
+  --context=<factory-cluster-context> \
+  --name=<factory-cluster-name> | \
+  kubectl apply -f - --context=<portal-cluster-context>
