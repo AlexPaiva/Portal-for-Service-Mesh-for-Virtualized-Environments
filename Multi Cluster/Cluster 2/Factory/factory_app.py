@@ -25,7 +25,7 @@ def update_data():
         }
         # Send data to the portal API
         try:
-            requests.post(f"http://{portal_api_ip}/api/update", json=factory_data)
+            requests.post(f"http://portal-service.default.svc.cluster.local/api/update", json=factory_data)
         except requests.exceptions.RequestException as e:
             print(f"Failed to send data to portal API: {e}")
         time.sleep(3)
