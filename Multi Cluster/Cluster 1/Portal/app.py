@@ -64,7 +64,7 @@ def factory_data():
     factory_ids = [current_user.factory_id] if current_user.factory_id != 0 else [1, 2]
     data = []
     for factory_id in factory_ids:
-        factory_service_name = f"factory{factory_id}-service.default.svc.cluster.local"
+        factory_service_name = f"factory{factory_id}-service.default.global"
         try:
             response = requests.get(f"http://{factory_service_name}/api/data")
             if response.status_code == 200:
