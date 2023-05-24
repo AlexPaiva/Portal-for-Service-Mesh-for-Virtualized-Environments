@@ -36,13 +36,13 @@ sudo systemctl start kube-apiserver.service
 
 sudo kind create cluster --config kind-config.yaml --name portal-cluster
 sudo kubectl config use-context kind-portal-cluster
-sudo istioctl install --set profile=demo -y
+OLD IGNORAR - > sudo istioctl install --set profile=demo -y
 sudo kubectl label namespace default istio-injection=enabled
 cd Portal
 sudo docker build -t portal-deployment .
 sudo docker tag portal-deployment istsmerafarlho/projpeci:portal-deployment
 sudo docker push istsmerafarlho/projpeci:portal-deployment
-sudo kind load docker-image portal-deployment --name portal-cluster
+OLD NAO USAR -> sudo kind load docker-image portal-deployment --name portal-cluster
 sudo kubectl apply -f portal-deployment.yaml
 
 sudo kubectl get services portal-service -o=jsonpath='{.spec.clusterIP}'
@@ -52,20 +52,20 @@ sudo kubectl get services portal-service -o=jsonpath='{.spec.clusterIP}'
 //Na pasta cluster2:
 sudo kind create cluster --config kind-config-factory.yaml --name factory-cluster
 sudo kubectl config use-context kind-factory-cluster
-sudo istioctl install --set profile=demo -y
+OLD NAO USAR -> sudo istioctl install --set profile=demo -y
 sudo kubectl label namespace default istio-injection=enabled
 cd Factory
 sudo kubectl config use-context kind-factory-cluster
 sudo docker build -t factory1-deployment-cluster2 .
 sudo docker tag factory1-deployment-cluster2 istsmerafarlho/projpeci:factory1-deployment-cluster2
 sudo docker push istsmerafarlho/projpeci:factory1-deployment-cluster2
-sudo kind load docker-image factory1-deployment-cluster2 --name factory-cluster
+OLD NAO USAR -> sudo kind load docker-image factory1-deployment-cluster2 --name factory-cluster
 sudo kubectl apply -f factory1-deployment-cluster2.yaml
 
 sudo docker build -t factory2-deployment-cluster2 .
 sudo docker tag factory2-deployment-cluster2 istsmerafarlho/projpeci:factory2-deployment-cluster2
 sudo docker push istsmerafarlho/projpeci:factory2-deployment-cluster2
-sudo kind load docker-image factory2-deployment-cluster2 --name factory-cluster
+OLD NAO USAR -> sudo kind load docker-image factory2-deployment-cluster2 --name factory-cluster
 sudo kubectl apply -f factory2-deployment-cluster2.yaml
 
 
