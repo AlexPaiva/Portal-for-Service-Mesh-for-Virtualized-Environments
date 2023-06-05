@@ -1,0 +1,54 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: default
+spec:
+  host: "*.global"
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: istio-egressgateway
+spec:
+  hosts:
+  - istio-egressgateway.istio-system.svc.cluster.local
+  addresses:
+  - 192.168.0.1/32 # Replace with the IP address of the remote cluster gateway
+  ports:
+  - name: https
+    number: 15443
+    protocol: TLS
+  location: MESH_EXTERNAL
+---
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: factory1-service
+spec:
+  hosts:
+  - factory1-service.default.global
+  ports:
+  - number: 80
+    name: http
+    protocol: HTTP
+  location: MESH_INTERNAL
+  resolution: DNS
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: factory1-service
+spec:
+  hosts:
+  - factory1-service.default.global
+  http:
+  - match:
+    - port: 80
+    route:
+    - destination:
+        host: factory1-service.default.svc.cluster.local
+        subset: v1
+      weight: 100
