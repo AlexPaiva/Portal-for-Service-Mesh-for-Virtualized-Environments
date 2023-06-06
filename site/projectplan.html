@@ -25,12 +25,14 @@
         <div class="container">
             <div class="row nav-ro" style="background-color: rgb(49, 43, 43);">
                 <div class="col-md-3 col-sm-12 logo">
-                    <img class="log" src="images/logo_factory.png" alt="" width="120px">
+                    <a href="index.html">
+                        <img class="log" src="images/logo_factory.png" alt="" width="120px">
+                    </a>
                     <a data-toggle="collapse" data-target="#nav-head" href="#nav-head"><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
                 </div>
                 <div id="nav-head" class="col-md-9 nav-div d-none d-md-block">
                     <ul>
-                        <li><a class="js-scroll-trigger" href="index.html" style="color:white">Home</a></li>
+                        <!--<li><a class="js-scroll-trigger" href="index.html" style="color:white">Home</a></li>-->
                         <li><a class="js-scroll-trigger" href="projectplan.html" style="color:white">Project Plan</a></li>
                         <li><a class="js-scroll-trigger" href="reportspresentations.html" style="color:white">Reports and Presentations</a></li>
                         <li><a class="js-scroll-trigger" href="https://github.com/AlexPaiva/Portal-for-Service-Mesh-for-Virtualized-Environments.git" style="color:white">Repository</a></li>
@@ -45,10 +47,10 @@
    <div class="page-nav no-margin row">
     <div class="container">
         <div class="row">
-            <h2>Project Plan</h2>
+            <h2 style="color:white">Project Plan</h2>
             <ul>
-                <li> <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                <li><i class="fas fa-angle-double-right"></i> Project Plan</li>
+                <li> <a href="index.html" style="color:white"><i class="fa fa-home" aria-hidden="true" style="color:white"></i> Home</a></li>
+                <li style="color:white"><i class="fas fa-angle-double-right" style="color:white"></i> Project Plan</li>
             </ul>
         </div>
     </div>
@@ -67,15 +69,27 @@
 
     <div class="container ">
         <div class="row inner-title">
-            <h2>Our description</h2>
-            <p>This is our project description.</p>
+            <h2 style="color:white">Portal for Service Mesh for Virtualized Environments</h2>
+            <img src="images/Factory_Management_System.png" alt="Image description" width="400px" style="margin-left: auto; margin-right: auto;">
         </div>
         <div class="container-fluid" style="text-align:justify">
+            <div style="margin-bottom: 20px;">
             In today's world, many applications are migrating from monolithic architectures to a multi-service architecture based approach, leading to the implementation of microservices architecture.
                 <p>However, this architecture presents challenges such as inconsistent user experiences across different server locations. </p>
                 To solve this problem, a Service Mesh is proposed as a solution!
                 <p>This project's goal is to automate, streamline and mitigate these drawbacks by deploying a Service Mesh across multiple Kubernetes clusters, allowing developers to focus on core tasks.</p> 
                 <p>The project includes a user-friendly portal that allows users to deploy services on their preferred cluster, control all aspects of the architecture, and access real-time management information and settings in an easy way.</p>
+        </div>
+        </div>
+
+        <div class="container-fluid" style="text-align:justify">
+           <p> Our project simulate a real-world scenario where  a main office manages multiples factories in different countries.​</p>
+
+            Each cluster represents a different country with its factories, these factories communicate with the main office through an API sending live data from each factory, in this case we're simulating each factory recording the material that is coming in and product that is coming out and sending that info to the main office.​
+            
+            <p>Our main office will receive that information and display it on the dashboard of our portal. The portal allows to filter each factory info, by logging in into a specific factory account and displaying the live data from that factory, and to add more factory clusters to the main office. ​
+            </p>
+            ​he project includes a user-friendly portal that allows users to deploy services on their preferred cluster, control all aspects of the architecture, and access real-time management information and settings in an easy way.</p>
                
         </div>
         <div class="container-fluid" style="margin-top: 50px; margin-bottom: 40px;">
