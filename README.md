@@ -20,7 +20,7 @@ This portal was designed as a cutting-edge solution to streamline the integratio
 1. **Prerequisites**: Ensure Docker, Kubernetes, and Istio are installed.
 2. **Deployment**:
    - Clone the repository.
-   - Follow the setup instructions within the `Prototipo-29-03` directory for current deployment guidelines.
+   - Follow the setup instructions within the `Multi Cluster` directory for current deployment guidelines. All other deployment files are deprecated.
 3. **Accessing the Portal**:
    - The portal is accessible via `http://localhost:<PORT>`, with `PORT` being the deployment-specific port.
 
