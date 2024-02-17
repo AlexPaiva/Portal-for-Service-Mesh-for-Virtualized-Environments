@@ -29,10 +29,10 @@ This portal was designed as a cutting-edge solution to streamline the integratio
 For an in-depth understanding, please refer to the supplementary [PDF report](../main/Report.pdf), which provides detailed documentation on our project's objectives, architecture, and implementation nuances.
 
 ## Deprecated Versions
-- [Vagrant Single Cluster Prototype (Deprecated Feb 23, 2023)](../main/Deprecated Runs/Vagrant Single Cluster Prototype/README.md)
+- [Vagrant Single Cluster Prototype (Deprecated Feb 23, 2023)](../main/deprecated-runs/vagrant-single-cluster-prototype/README.md)
 This guide provides step-by-step instructions for setting up the project environment (single cluster only) using ([Vagrant](https://www.vagrantup.com "Vagrant Homepage")) and ([Kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/ "Kubeadm Documentation")).
 
-- [Single Cluster Prototype (Deprecated March 29, 2023)](../main/Deprecated Runs/Single Cluster Prototype/README.md)
+- [Single Cluster Prototype (Deprecated March 29, 2023)](../main/deprecated-runs/Deprecated Runs/single-cluster-prototype/README.md)
 This guide provides step-by-step instructions for setting up the project environment (single cluster only) using Kind ([Kubernetes in Docker](https://kind.sigs.k8s.io "KIND Homepage")), ([Docker](https://www.docker.com "Docker Homepage")), and ([Istio](https://istio.io "Istio Homepage")).
 
 ## Acknowledgments
