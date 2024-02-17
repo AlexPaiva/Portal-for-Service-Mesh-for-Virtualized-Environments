@@ -37,3 +37,6 @@ This guide provides step-by-step instructions for setting up the project environ
 
 ## Acknowledgments
 Thanks to the students and faculty of Universidade de Aveiro for their collaboration and insights into creating this innovative project.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](../main/LICENSE) file for details.
