@@ -1,0 +1,4 @@
+03/12/2022 - Grabbed original from: https://raw.githubusercontent.com/scriptcamp/kubeadm-scripts/main/manifests/metrics-server.yaml
+but added 'hostNetowkr: true' on line 130, this was because of the error '(ServiceUnavailable): the server is currently unable to handle the request (get nodes.metrics.k8s.io).'
+given when trying 'kubectl top nodes' after installing everything
+----
